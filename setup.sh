@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#                    _           _        _ _ 
+#                    _           _        _ _
 #  ___  _____  __   (_)_ __  ___| |_ __ _| | |
 # / _ \/ __\ \/ /   | | '_ \/ __| __/ _` | | |
 #| (_) \__ \>  <    | | | | \__ \ || (_| | | |
@@ -193,6 +193,7 @@ brew link curl --force
 brew install the_silver_searcher
 brew install trash  # move to osx trash instead of rm
 brew install less
+brew install thefuck
 
 
 ### Python
@@ -207,7 +208,7 @@ brew cask install arduino
 # https://www.pjrc.com/teensy/td_download.html
 
 
-### Dev Editors 
+### Dev Editors
 brew cask install visual-studio-code
 brew cask install pycharm
 ### spacemacs github.com/syl20bnr/spacemacs
@@ -366,7 +367,7 @@ defaults write com.apple.dock autohide-delay -float 0
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 
-# Only Show Open Applications In The Dock  
+# Only Show Open Applications In The Dock
 defaults write com.apple.dock static-only -bool true
 
 # Display full POSIX path as Finder window title
@@ -435,7 +436,8 @@ defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Save screenshots to the desktop
-defaults write com.apple.screencapture location -string "$HOME/Desktop/Screencaps""
+mkdir $HOME/Screenshots
+defaults write com.apple.screencapture location -string "$HOME/Screenshots"
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
@@ -520,15 +522,15 @@ defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
 #############################################
 ### Install dotfiles repo, run link script
 #############################################
-# TODO: 
+# TODO:
 # clean up my personal repo to make it public
-# dotfiles for vs code, emacs, gitconfig, oh my zsh, etc. 
-git clone git@github.com:hopkinsju/dotfiles.git
-cd dotfiles
+# dotfiles for vs code, emacs, gitconfig, oh my zsh, etc.
+git clone git@github.com:hopkinsju/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles
 #fetch submodules for oh-my-zsh
-git submodule init && git submodule update && git submodule status
+#git submodule init && git submodule update && git submodule status
 # make symbolic links and change shell to zshell
-./makesymlinks.sh
+bash scripts/bootstrap.sh
 upgrade_oh_my_zsh
 
 
