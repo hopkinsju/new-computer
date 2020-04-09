@@ -7,10 +7,8 @@
 # \___/|___/_/\_\   |_|_| |_|___/\__\__,_|_|_|
 
 
-echo "I  ❤️  🍎"
 echo "Mac OS Install Setup Script"
 echo "By Nina Zakharenko"
-echo "Follow me on twitter! https://twitter.com/nnja"
 
 # Some configs reused from:
 # https://github.com/ruyadorno/installme-osx/
@@ -175,12 +173,13 @@ defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
 brew cask install iterm2
 brew cask install dash
 brew install ispell
+brew cask install postman
 
 
 ### Development
 brew cask install docker
-brew install postgresql
-brew install redis
+#brew install postgresql
+#brew install redis
 
 
 ### Command line tools - install new ones, update others to latest version
@@ -191,7 +190,7 @@ brew install zsh # zshell
 brew install tmux
 brew install tree
 brew link curl --force
-brew install grep --with-default-names
+brew install the_silver_searcher
 brew install trash  # move to osx trash instead of rm
 brew install less
 
@@ -219,19 +218,19 @@ brew linkapps emacs-plus
 
 
 ### Writing
-brew cask install evernote
+#brew cask install evernote
 brew cask install macdown
 brew cask install notion
 
 
 ### Conferences, Blogging, Screencasts
-brew cask install deckset
+#brew cask install deckset
 brew cask install ImageOptim  # for optimizing images
-brew cask install screenflow
+#brew cask install screenflow
 
 
 ### Productivity
-brew cask install wavebox
+#brew cask install wavebox
 brew cask install google-chrome
 brew cask install alfred
 brew cask install dropbox
@@ -261,13 +260,13 @@ brew cask install quicklook-csv  # preview csvs
 
 ### Chat / Video Conference
 brew cask install slack
-brew cask install microsoft-teams
+#brew cask install microsoft-teams
 brew cask install zoomus
-brew cask install signal
+#brew cask install signal
 
 
 ### Music and Video
-brew cask install marshallofsound-google-play-music-player
+brew cask install yt-music
 brew cask install vlc
 
 
@@ -305,13 +304,13 @@ brew install mas
 
 cecho "Need to log in to App Store manually to install apps with mas...." $red
 echo "Opening App Store. Please login."
-open "/Applications/App Store.app"
+open "/System/Applications/App Store.app"
 echo "Is app store login complete.(y/n)? "
 read response
 if [ "$response" != "${response#[Yy]}" ]
 then
 	mas install 907364780  # Tomato One - Pomodoro timer
-	mas install 485812721  # Tweetdeck
+	# mas install 485812721  # Tweetdeck
 	mas install 668208984  # GIPHY Capture. The GIF Maker (For recording my screen as gif)
 	mas install 1351639930 # Gifski, convert videos to gifs
 	mas install 414030210  # Limechat, IRC app.
@@ -326,9 +325,10 @@ fi
 
 echo "Installing global Python packages..."
 
-pip3 install --upgrade pip
+pip3 install --user --upgrade pip
 pip3 install --user pylint
 pip3 install --user flake8
+pip3 install --user pipenv
 
 
 #############################################
@@ -423,7 +423,7 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
 # Use function F1, F, etc keys as standard function keys
-defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
+#defaults write NSGlobalDomain com.apple.keyboard.fnState -bool true
 
 
 ###############################################################################
@@ -435,7 +435,7 @@ defaults write com.apple.screensaver askForPassword -int 1
 defaults write com.apple.screensaver askForPasswordDelay -int 0
 
 # Save screenshots to the desktop
-defaults write com.apple.screencapture location -string "$HOME/Desktop"
+defaults write com.apple.screencapture location -string "$HOME/Desktop/Screencaps""
 
 # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
 defaults write com.apple.screencapture type -string "png"
@@ -523,13 +523,13 @@ defaults write com.google.Chrome AppleEnableSwipeNavigateWithScrolls -bool false
 # TODO: 
 # clean up my personal repo to make it public
 # dotfiles for vs code, emacs, gitconfig, oh my zsh, etc. 
-# git clone git@github.com:nnja/dotfiles.git
-# cd dotfiles
-# fetch submodules for oh-my-zsh
-# git submodule init && git submodule update && git submodule status
+git clone git@github.com:hopkinsju/dotfiles.git
+cd dotfiles
+#fetch submodules for oh-my-zsh
+git submodule init && git submodule update && git submodule status
 # make symbolic links and change shell to zshell
-# ./makesymlinks.sh
-# upgrade_oh_my_zsh
+./makesymlinks.sh
+upgrade_oh_my_zsh
 
 
 echo ""
@@ -542,7 +542,7 @@ echo ""
 cecho "Note that some of these changes require a logout/restart to take effect." $red
 echo ""
 echo ""
-echo -n "Check for and install available OSX updates, install, and automatically restart? (y/n)? "
+echo "Check for and install available OSX updates, install, and automatically restart? (y/n)?"
 read response
 if [ "$response" != "${response#[Yy]}" ] ;then
     softwareupdate -i -a --restart
