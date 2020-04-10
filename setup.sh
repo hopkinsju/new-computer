@@ -290,6 +290,9 @@ brew cask install font-fira-code
 ### SourceCodePro + Powerline + Awesome Regular (for powerlevel 9k terminal icons)
 cd ~/Library/Fonts && { curl -O 'https://github.com/Falkor/dotfiles/blob/master/fonts/SourceCodePro+Powerline+Awesome+Regular.ttf?raw=true' ; cd -; }
 
+### install sack
+git clone https://github.com/sampson-chen/sack.git && cd sack && chmod +x
+install_sack.sh && ./install_sack.sh && cd .. && rm -fr sack
 
 #############################################
 ### Installs from Mac App Store
