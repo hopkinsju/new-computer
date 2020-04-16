@@ -174,6 +174,7 @@ brew cask install iterm2
 brew cask install dash
 brew install ispell
 brew cask install postman
+brew install akamai
 
 
 ### Development
