@@ -171,6 +171,7 @@ defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
 
 ### Developer Tools
 brew cask install iterm2
+brew install asciinema
 brew cask install dash
 brew install ispell
 brew cask install postman
@@ -199,6 +200,10 @@ brew install thefuck
 ### Python
 brew install python
 brew install pyenv
+brew install openssl
+brew link openssl --force
+brew uninstall python
+brew install python --with-brewed-openssl
 
 
 ### Microcontrollers & Electronics
@@ -534,7 +539,7 @@ cd ~/.dotfiles
 #fetch submodules for oh-my-zsh
 #git submodule init && git submodule update && git submodule status
 # make symbolic links and change shell to zshell
-bash scripts/bootstrap.sh
+bash scripts/bootstrap
 upgrade_oh_my_zsh
 
 
