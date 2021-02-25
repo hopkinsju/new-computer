@@ -170,11 +170,10 @@ defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
 
 
 ### Developer Tools
-brew cask install iterm2
+brew install iterm2
 brew install asciinema
-brew cask install dash
 brew install ispell
-brew cask install postman
+brew install postman
 brew install akamai
 brew install ttyd
 brew install gpg
