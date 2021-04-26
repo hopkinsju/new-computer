@@ -160,7 +160,7 @@ echo "Starting brew app install..."
 
 ### Window Management
 # Todo: Try Divvy and spectacles in the future
-brew cask install sizeup  # window manager
+brew install --cask sizeup  # window manager
 
 # Start SizeUp at login
 defaults write com.irradiatedsoftware.SizeUp StartAtLogin -bool true
@@ -177,10 +177,12 @@ brew install postman
 brew install akamai
 brew install ttyd
 brew install gpg
+brew install serverless
+brew install pyenv-virtualenv
 
 
 ### Development
-brew cask install docker
+brew install --cask docker
 #brew install postgresql
 #brew install redis
 
@@ -194,9 +196,11 @@ brew install tmux
 brew install tree
 brew link curl --force
 brew install the_silver_searcher
+brew install gsed
 brew install trash  # move to osx trash instead of rm
 brew install less
 brew install thefuck
+brew install imagemagick
 
 
 ### Python
@@ -208,14 +212,14 @@ brew link openssl --force
 
 ### Microcontrollers & Electronics
 brew install avrdude
-brew cask install arduino
+brew install --cask arduino
 # Manually install teensyduino from:
 # https://www.pjrc.com/teensy/td_download.html
 
 
 ### Dev Editors
 brew install visual-studio-code
-#brew cask install pycharm
+#brew install --cask pycharm
 ### spacemacs github.com/syl20bnr/spacemacs
 #git clone https://github.com/syl20bnr/spacemacs ~/.emacs.d
 #brew tap d12frosted/emacs-plus
@@ -224,57 +228,58 @@ brew install visual-studio-code
 
 
 ### Writing
-#brew cask install evernote
-#brew cask install macdown
-#brew cask install notion
+#brew install --cask evernote
+#brew install --cask macdown
+#brew install --cask notion
 
 
 ### Conferences, Blogging, Screencasts
-#brew cask install deckset
-#brew cask install ImageOptim  # for optimizing images
-#brew cask install screenflow
+#brew install --cask deckset
+#brew install --cask ImageOptim  # for optimizing images
+#brew install --cask screenflow
 
 
 ### Productivity
-#brew cask install wavebox
-#brew cask install google-chrome
-#brew cask install alfred
-#brew cask install dropbox
+#brew install --cask wavebox
+#brew install --cask google-chrome
+#brew install --cask alfred
+#brew install --cask dropbox
 
-#brew cask install timing  # time and project tracker
-#brew cask install keycastr  # show key presses on screen (for gifs & screencasts)
-brew cask install betterzip
-#brew cask install caffeine  # keep computer from sleeping
-brew cask install skitch  # app to annotate screenshots
-#brew cask install muzzle
-#brew cask install flux
+#brew install --cask timing  # time and project tracker
+#brew install --cask keycastr  # show key presses on screen (for gifs & screencasts)
+brew install --cask betterzip
+#brew install --cask caffeine  # keep computer from sleeping
+brew install --cask skitch  # app to annotate screenshots
+#brew install --cask muzzle
+#brew install --cask flux
 
 
 ### Keyboard & Mouse
-#brew cask install karabiner-elements  # remap keys, emacs shortcuts
-#brew cask install scroll-reverser  # allow natural scroll for trackpad, not for mouse
+#brew install --cask karabiner-elements  # remap keys, emacs shortcuts
+#brew install --cask scroll-reverser  # allow natural scroll for trackpad, not for mouse
 
 
 ### Quicklook plugins https://github.com/sindresorhus/quick-look-plugins
-brew cask install qlcolorcode # syntax highlighting in preview
-brew cask install qlstephen  # preview plaintext files without extension
-brew cask install qlmarkdown  # preview markdown files
-brew cask install quicklook-json  # preview json files
-#brew cask install epubquicklook  # preview epubs, make nice icons
-brew cask install quicklook-csv  # preview csvs
+brew install --cask qlcolorcode # syntax highlighting in preview
+brew install --cask qlstephen  # preview plaintext files without extension
+brew install --cask qlmarkdown  # preview markdown files
+brew install --cask quicklook-json  # preview json files
+#brew install --cask epubquicklook  # preview epubs, make nice icons
+brew install --cask quicklook-csv  # preview csvs
 
 
 ### Chat / Video Conference
-#brew cask install slack
-brew cask install discord
-#brew cask install microsoft-teams
-#brew cask install zoomus
-#brew cask install signal
+#brew install --cask slack
+brew install discord
+brew install keybase
+#brew install --cask microsoft-teams
+#brew install --cask zoomus
+#brew install --cask signal
 
 
 ### Music and Video
-#brew cask install yt-music
-brew cask install vlc
+#brew install --cask yt-music
+brew install --cask vlc
 
 
 ### Run Brew Cleanup
@@ -290,8 +295,8 @@ echo "Installing fonts..."
 brew tap caskroom/fonts
 
 ### programming fonts
-brew cask install font-fira-mono-for-powerline
-brew cask install font-fira-code
+brew install --cask font-fira-mono-for-powerline
+brew install --cask font-fira-code
 
 ### SourceCodePro + Powerline + Awesome Regular (for powerlevel 9k terminal icons)
 cd ~/Library/Fonts && { curl -O 'https://github.com/Falkor/dotfiles/blob/master/fonts/SourceCodePro+Powerline+Awesome+Regular.ttf?raw=true' ; cd -; }
